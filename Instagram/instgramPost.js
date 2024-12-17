@@ -162,8 +162,9 @@ export default class InstagramPost {
     ctx.fillText(this.caption, 10, contentY + 50);
     ctx.fillStyle = gray;
     ctx.fillText(this.ago, 10, contentY + 70);
-    const buffer = canvas.toBuffer('image/png');
-    return buffer;
+    const buffer = await canvas.toBuffer('image/png');
+    if (!buffer || buffer.length === 0) {
+      throw new Error("Generated buffer is empty");
+    }
   }
-  
 }
