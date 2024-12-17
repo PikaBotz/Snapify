@@ -78,6 +78,11 @@ export default class InstagramPost {
     return this;
   }
 
+  setImage(value) {
+    this.imageUrl = value;
+    return this;
+  }
+
   async toAttachment() {
     const postImage = await loadImage(this.imageUrl);
     const frameWidth = Math.min(1080, postImage.width);
