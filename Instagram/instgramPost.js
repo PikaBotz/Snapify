@@ -5,7 +5,7 @@ export default class InstagramPost {
   constructor() {
     this.following = false;
     this.verified = false;
-    this.pfp = 'https://avatars.githubusercontent.com/u/121213527?v=4&number=69';
+    this.pfp = 'https://avatars.githubusercontent.com/u/121213527?v=4';
     this.username = 'PikaBotz';
     this.watermark = false;
     this.saved = false;
@@ -15,7 +15,7 @@ export default class InstagramPost {
     this.caption = '';
     this.ago = '1 year ago';
     this.liked = false;
-    this.imageUrl = 'https://avatars.githubusercontent.com/u/121213527?v=4&number=69';
+    this.imageUrl = 'https://avatars.githubusercontent.com/u/121213527?v=4';
   }
 
   isFollowing(value) {
