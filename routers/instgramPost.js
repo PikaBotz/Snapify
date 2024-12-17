@@ -142,7 +142,7 @@ router.post('/', async (req, res) => {
             .setAgo(ago)
             .isLiked(liked)
             .setImage(imageBuffer)
-            .toAttachment();
+            .buildCanvas();
         res.set("Content-Type", "image/png");
         return res.send(buffer);
     } catch (error) {
