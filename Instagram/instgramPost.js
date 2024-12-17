@@ -1,11 +1,13 @@
 import { createCanvas, registerFont, loadImage } from 'canvas';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Register custom font
 const fontPath = path.join(__dirname, 'Assets', 'Rokkitt-Regular.ttf');
-    console.log(fontPath);
+console.log(fontPath);
 registerFont(fontPath, { family: 'Rokkitt' });
 
 export default class InstagramPost {
@@ -92,125 +94,143 @@ export default class InstagramPost {
   }
 
   async buildCanvas() {
+    const width = 400;
+    const height = 540;
+    const canvas = createCanvas(width, height);
+    const ctx = canvas.getContext('2d');
 
-// Register custom font
-//const fontPath = '../Fonts/Arial-Regular.ttf';
-//registerFont(fontPath, { family: 'Arial' });
+    // Background
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, width, height);
 
-// Canvas dimensions
-const width = 400;
-const height = 540;
+    // Header
+    const headerHeight = 60;
+    ctx.fillStyle = '#1c1c1c';
+    ctx.fillRect(0, 0, width, headerHeight);
 
-  const canvas = createCanvas(width, height);
-  const ctx = canvas.getContext('2d');
+    // Profile Picture with gradient border
+    const profilePicSize = 44;
+    const profilePicX = 10;
+    const profilePicY = 8;
+    const gradient = ctx.createLinearGradient(0, 0, profilePicSize, profilePicSize);
+    gradient.addColorStop(0, 'red');
+    gradient.addColorStop(0.14, 'orange');
+    gradient.addColorStop(0.28, 'yellow');
+    gradient.addColorStop(0.42, 'green');
+    gradient.addColorStop(0.57, 'blue');
+    gradient.addColorStop(0.71, 'indigo');
+    gradient.addColorStop(0.85, 'violet');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(profilePicX + profilePicSize / 2, profilePicY + profilePicSize / 2, profilePicSize / 2, 0, Math.PI * 2);
+    ctx.fill();
 
-  // Background
-  ctx.fillStyle = '#000';
-  ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = '#1c1c1c';
+    ctx.beginPath();
+    ctx.arc(profilePicX + profilePicSize / 2, profilePicY + profilePicSize / 2, (profilePicSize - 4) / 2, 0, Math.PI * 2);
+    ctx.fill();
 
-  // Header
-  const headerHeight = 60;
-  ctx.fillStyle = '#1c1c1c';
-  ctx.fillRect(0, 0, width, headerHeight);
+    // Load Profile Picture
+    const profileImage = await loadImage(this.pfp);
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(profilePicX + profilePicSize / 2, profilePicY + profilePicSize / 2, (profilePicSize - 8) / 2, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.clip();
+    ctx.drawImage(profileImage, profilePicX + 4, profilePicY + 4, profilePicSize - 8, profilePicSize - 8);
+    ctx.restore();
 
-  // Profile Picture with gradient border
-  const profilePicSize = 44;
-  const profilePicX = 10;
-  const profilePicY = 8;
-  const gradient = ctx.createLinearGradient(0, 0, profilePicSize, profilePicSize);
-  gradient.addColorStop(0, 'red');
-  gradient.addColorStop(0.14, 'orange');
-  gradient.addColorStop(0.28, 'yellow');
-  gradient.addColorStop(0.42, 'green');
-  gradient.addColorStop(0.57, 'blue');
-  gradient.addColorStop(0.71, 'indigo');
-  gradient.addColorStop(0.85, 'violet');
-  ctx.fillStyle = gradient;
-  ctx.beginPath();
-  ctx.arc(profilePicX + profilePicSize / 2, profilePicY + profilePicSize / 2, profilePicSize / 2, 0, Math.PI * 2);
-  ctx.fill();
+    // Username and Info
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 12px Rokkitt';
+    ctx.fillText('3.69_pika', profilePicX + profilePicSize + 10, profilePicY + 16);
 
-  ctx.fillStyle = '#1c1c1c';
-  ctx.beginPath();
-  ctx.arc(profilePicX + profilePicSize / 2, profilePicY + profilePicSize / 2, (profilePicSize - 4) / 2, 0, Math.PI * 2);
-  ctx.fill();
+    ctx.font = '12px Rokkitt';
+    ctx.fillStyle = '#888';
+    ctx.fillText('𝐐𝐮𝐞𝐞𝐧 𝐀𝐧𝐲𝐚 𝐕2 • @𝐏𝐢𝐤𝐚𝐁𝐨𝐭𝐳', profilePicX + profilePicSize + 10, profilePicY + 36);
 
-  // Load Profile Picture
-  const profileImage = await loadImage(
-    'https://avatars.githubusercontent.com/u/121213527?v=4'
-  );
-  ctx.save();
-  ctx.beginPath();
-  ctx.arc(profilePicX + profilePicSize / 2, profilePicY + profilePicSize / 2, (profilePicSize - 8) / 2, 0, Math.PI * 2);
-  ctx.closePath();
-  ctx.clip();
-  ctx.drawImage(profileImage, profilePicX + 4, profilePicY + 4, profilePicSize - 8, profilePicSize - 8);
-  ctx.restore();
+    // Follow Button
+    ctx.fillStyle = '#fff';
+    ctx.font = '12px Rokkitt';
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(width - 70, profilePicY + 10, 60, 20);
+    ctx.fillText('Follow', width - 62, profilePicY + 25);
 
-  // Username and Info
-  ctx.fillStyle = '#fff';
-  ctx.font = 'bold 12px Rokkitt';
-  ctx.fillText('3.69_pika', profilePicX + profilePicSize + 10, profilePicY + 16);
+    // Options Dots
+    ctx.font = '18px Rokkitt';
+    ctx.fillStyle = '#fff';
+    ctx.fillText('•••', width - 25, profilePicY + 25);
 
-  ctx.font = '12px Rokkitt';
-  ctx.fillStyle = '#888';
-  ctx.fillText('𝐐𝐮𝐞𝐞𝐧 𝐀𝐧𝐲𝐚 𝐕2 • @𝐏𝐢𝐤𝐚𝐁𝐨𝐭𝐳', profilePicX + profilePicSize + 10, profilePicY + 36);
+    // Post Image
+    const postImage = await loadImage(this.imageUrl);
+    ctx.drawImage(postImage, 0, headerHeight, width, 400);
 
-  // Follow Button
-  ctx.fillStyle = '#fff';
-  ctx.font = '12px Rokkitt';
-  ctx.strokeStyle = '#fff';
-  ctx.lineWidth = 1;
-  ctx.strokeRect(width - 70, profilePicY + 10, 60, 20);
-  ctx.fillText('Follow', width - 62, profilePicY + 25);
+    // Footer
+    const footerY = headerHeight + 400;
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, footerY, width, height - footerY);
 
-  // Options Dots
-  ctx.font = '18px Rokkitt';
-  ctx.fillStyle = '#fff';
-  ctx.fillText('•••', width - 25, profilePicY + 25);
+    // --- LIKE ICON (Heart Shape) ---
+    ctx.fillStyle = '#ff0000'; // Red color for the heart
+    ctx.beginPath();
+    ctx.moveTo(10, footerY + 25);
+    ctx.bezierCurveTo(10, footerY + 5, 30, footerY + 5, 40, footerY + 15); // Left curve
+    ctx.bezierCurveTo(50, footerY + 5, 70, footerY + 5, 70, footerY + 25); // Top middle curve
+    ctx.bezierCurveTo(70, footerY + 45, 50, footerY + 55, 40, footerY + 35); // Right curve
+    ctx.bezierCurveTo(30, footerY + 55, 10, footerY + 45, 10, footerY + 25); // Left curve
+    ctx.fill();
 
-  // Image
-  const postImage = await loadImage(
-    'https://avatars.githubusercontent.com/u/121213527?v=4'
-  );
-  ctx.drawImage(postImage, 0, headerHeight, width, 400);
+    // --- COMMENT ICON (Speech Bubble) ---
+    ctx.fillStyle = '#00ff00'; // Green color for the comment bubble
+    ctx.beginPath();
+    ctx.moveTo(100, footerY + 15);
+    ctx.lineTo(160, footerY + 15); // Bottom line
+    ctx.lineTo(160, footerY - 15); // Right side
+    ctx.lineTo(100, footerY - 15); // Left side
+    ctx.closePath();
+    ctx.fill();
 
-  // Footer
-  const footerY = headerHeight + 400;
-  ctx.fillStyle = '#000';
-  ctx.fillRect(0, footerY, width, height - footerY);
+    // Triangle for the speech bubble tail
+    ctx.beginPath();
+    ctx.moveTo(110, footerY - 15);
+    ctx.lineTo(120, footerY - 45); // Tail point
+    ctx.lineTo(130, footerY - 15);
+    ctx.closePath();
+    ctx.fill();
 
-  // Icons
-  ctx.fillStyle = '#fff';
-  ctx.font = '18px Rokkitt';
-  ctx.fillText('♡', 10, footerY + 25); // Like
-  ctx.fillText('💬', 50, footerY + 25); // Comment
-  ctx.fillText('✈️', 90, footerY + 25); // Share
-  ctx.fillText('🔖', width - 30, footerY + 25); // Save
+    // --- SHARE ICON (Arrow) ---
+    ctx.fillStyle = '#0000ff'; // Blue color for the share icon
+    ctx.beginPath();
+    ctx.moveTo(200, footerY + 15); // Starting point for the arrow shaft
+    ctx.lineTo(250, footerY + 15); // End of the shaft
+    ctx.lineTo(250, footerY - 5); // Right side of the shaft
+    ctx.lineTo(280, footerY - 5); // Arrow right part
+    ctx.lineTo(250, footerY - 25); // Back to shaft
+    ctx.lineTo(250, footerY - 45); // Ending part of arrow
+    ctx.lineTo(240, footerY - 55); // Bottom left part of the arrow
+    ctx.closePath();
+    ctx.fill();
 
-  // Caption
-  ctx.font = 'bold 14px Rokkitt';
-  ctx.fillStyle = '#fff';
-  ctx.fillText('3.69_pika', 10, footerY + 50);
+    // Caption
+    ctx.font = 'bold 14px Rokkitt';
+    ctx.fillStyle = '#fff';
+    ctx.fillText('3.69_pika', 10, footerY + 50);
 
-  ctx.font = '14px Rokkitt';
-  ctx.fillStyle = '#fff';
-  ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 10, footerY + 70);
+    ctx.font = '14px Rokkitt';
+    ctx.fillStyle = '#fff';
+    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 10, footerY + 70);
 
-  ctx.fillStyle = '#1da1f2';
-  ctx.fillText('#theultimatenerd @friend', 10, footerY + 90);
+    ctx.fillStyle = '#1da1f2';
+    ctx.fillText('#theultimatenerd @friend', 10, footerY + 90);
 
-  // Time
-  ctx.font = '12px Rokkitt';
-  ctx.fillStyle = '#888';
-  ctx.fillText('1 year ago', 10, footerY + 110);
+    // Time
+    ctx.font = '12px Rokkitt';
+    ctx.fillStyle = '#888';
+    ctx.fillText('1 year ago', 10, footerY + 110);
 
-  // Save to file or return buffer
-  const buffer = canvas.toBuffer();
-  return buffer;
-}
-
-// Generate the Instagram Post
-
-  
+    // Save to file or return buffer
+    const buffer = canvas.toBuffer();
+    return buffer;
+  }
 }
