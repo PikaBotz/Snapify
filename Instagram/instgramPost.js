@@ -10,6 +10,8 @@ const fontPath = path.join(__dirname, 'Assets', 'Rokkitt-Regular.ttf');
 console.log(fontPath);
 registerFont(fontPath, { family: 'Rokkitt' });
 
+const likePng = path.join(__dirname, 'Assets', 'like.png');
+
 export default class InstagramPost {
 
   constructor() {
@@ -171,15 +173,9 @@ export default class InstagramPost {
     ctx.fillStyle = '#000';
     ctx.fillRect(0, footerY, width, height - footerY);
 
-    // --- LIKE ICON (Heart Shape) ---
-    ctx.fillStyle = '#ff0000'; // Red color for the heart
-    ctx.beginPath();
-    ctx.moveTo(10, footerY + 25);
-    ctx.bezierCurveTo(10, footerY + 5, 30, footerY + 5, 40, footerY + 15); // Left curve
-    ctx.bezierCurveTo(50, footerY + 5, 70, footerY + 5, 70, footerY + 25); // Top middle curve
-    ctx.bezierCurveTo(70, footerY + 45, 50, footerY + 55, 40, footerY + 35); // Right curve
-    ctx.bezierCurveTo(30, footerY + 55, 10, footerY + 45, 10, footerY + 25); // Left curve
-    ctx.fill();
+    // --- LIKE ICON (Heart PNG) ---
+const heartImage = await loadImage(likePng); // Replace with the path to your heart PNG image
+ctx.drawImage(heartImage, 10, footerY + 10, 30, 30); // Draw the heart image at the specified position with the size (30x30px)
 
     // --- COMMENT ICON (Speech Bubble) ---
     ctx.fillStyle = '#00ff00'; // Green color for the comment bubble
