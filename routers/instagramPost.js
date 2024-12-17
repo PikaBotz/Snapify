@@ -146,7 +146,7 @@ router.post('/', async (req, res) => {
             .setImage(imageBuffer)
             .buildCanvas();
         res.set("Content-Type", "image/png");
-        return res.send(buffer.toBuffer());
+        return res.send(buffer);
     } catch (error) {
         console.log(error);
         return res.status(500).json({
