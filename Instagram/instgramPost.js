@@ -1,4 +1,4 @@
-import { createCanvas, loadImage } from 'canvas';
+import { createCanvas, registerFont, loadImage } from 'canvas';
 import path from 'path';
 
 export default class InstagramPost {
