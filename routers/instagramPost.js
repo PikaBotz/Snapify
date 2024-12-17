@@ -130,7 +130,7 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        const buffer = await new InstagramPost()
+        const post = await new InstagramPost()
             .isFollowing(following)
             .isVerified(verified)
             .setPfp(pfp)
@@ -143,8 +143,8 @@ router.post('/', async (req, res) => {
             .setCaption(caption)
             .setAgo(ago)
             .isLiked(liked)
-            .setImage(imageBuffer)
-            .buildCanvas();
+            .setImage(imageBuffer);
+        const buffer = await post.buildCanvas();
         res.set("Content-Type", "image/png");
         return res.send(buffer);
     } catch (error) {
