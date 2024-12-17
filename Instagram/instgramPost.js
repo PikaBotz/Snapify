@@ -1,6 +1,12 @@
 import { createCanvas, registerFont, loadImage } from 'canvas';
 import path from 'path';
 import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const fontPath = path.join(__dirname, 'Assets', 'Rokkitt-Regular.ttf');
+    console.log(fontPath);
+registerFont(fontPath, { family: 'Rokkitt' });
 
 export default class InstagramPost {
 
@@ -86,13 +92,6 @@ export default class InstagramPost {
   }
 
   async buildCanvas() {
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const fontPath = './Instagram/Assets/Rokkitt-Regular.ttf';
-  //path.join(__dirname, 'Assets', 'Rokkitt-Regular.ttf');
-    console.log(fontPath);
-registerFont(fontPath, { family: 'Rokkitt' });
 
 // Register custom font
 //const fontPath = '../Fonts/Arial-Regular.ttf';
