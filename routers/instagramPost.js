@@ -1,4 +1,5 @@
 import express from 'express';
+import axios from 'axios';
 import InstagramPost from '../Instagram/instgramPost.js';
 import { Buffer } from 'buffer';
 const router = express.Router();
@@ -116,8 +117,8 @@ router.post('/', async (req, res) => {
         }
     } else {
         try {
-            const response = await fetch(image);
-            imageBuffer = await response.buffer();
+            const response = await axios.get(image, { responseType: 'arraybuffer' });
+            imageBuffer = Buffer.from(response.data);
         } catch (err) {
             console.log(err);
             return res.status(400).json({
