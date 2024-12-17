@@ -1,13 +1,14 @@
 {
-  "routes": [
+  "version": 2,
+  "buildCommand": "./build.sh",
+  "builds": [
     {
-      "src": "/(.*)",
-      "dest": "/api/index.js"
+      "src": "api/*.js",
+      "use": "@vercel/node"
     }
   ],
-  "functions": {
-    "api/index.js": {
-      "maxDuration": 60
-    }
-  }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "api/index.js" }
+  ]
 }
