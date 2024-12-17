@@ -91,8 +91,8 @@ const __dirname = path.dirname(__filename);
     
 
 // Register custom font
-const fontPath = '../Fonts/Rokkitt-Regular.ttf';
-registerFont(fontPath, { family: 'Rokkitt' });
+//const fontPath = '../Fonts/Arial-Regular.ttf';
+//registerFont(fontPath, { family: 'Arial' });
 
 // Canvas dimensions
 const width = 400;
@@ -146,23 +146,23 @@ const height = 540;
 
   // Username and Info
   ctx.fillStyle = '#fff';
-  ctx.font = 'bold 12px Rokkitt';
+  ctx.font = 'bold 12px Arial';
   ctx.fillText('3.69_pika', profilePicX + profilePicSize + 10, profilePicY + 16);
 
-  ctx.font = '12px Rokkitt';
+  ctx.font = '12px Arial';
   ctx.fillStyle = '#888';
   ctx.fillText('𝐐𝐮𝐞𝐞𝐧 𝐀𝐧𝐲𝐚 𝐕2 • @𝐏𝐢𝐤𝐚𝐁𝐨𝐭𝐳', profilePicX + profilePicSize + 10, profilePicY + 36);
 
   // Follow Button
   ctx.fillStyle = '#fff';
-  ctx.font = '12px Rokkitt';
+  ctx.font = '12px Arial';
   ctx.strokeStyle = '#fff';
   ctx.lineWidth = 1;
   ctx.strokeRect(width - 70, profilePicY + 10, 60, 20);
   ctx.fillText('Follow', width - 62, profilePicY + 25);
 
   // Options Dots
-  ctx.font = '18px Rokkitt';
+  ctx.font = '18px Arial';
   ctx.fillStyle = '#fff';
   ctx.fillText('•••', width - 25, profilePicY + 25);
 
@@ -179,18 +179,18 @@ const height = 540;
 
   // Icons
   ctx.fillStyle = '#fff';
-  ctx.font = '18px Rokkitt';
+  ctx.font = '18px Arial';
   ctx.fillText('♡', 10, footerY + 25); // Like
   ctx.fillText('💬', 50, footerY + 25); // Comment
   ctx.fillText('✈️', 90, footerY + 25); // Share
   ctx.fillText('🔖', width - 30, footerY + 25); // Save
 
   // Caption
-  ctx.font = 'bold 14px Rokkitt';
+  ctx.font = 'bold 14px Arial';
   ctx.fillStyle = '#fff';
   ctx.fillText('3.69_pika', 10, footerY + 50);
 
-  ctx.font = '14px Rokkitt';
+  ctx.font = '14px Arial';
   ctx.fillStyle = '#fff';
   ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 10, footerY + 70);
 
@@ -198,7 +198,7 @@ const height = 540;
   ctx.fillText('#theultimatenerd @friend', 10, footerY + 90);
 
   // Time
-  ctx.font = '12px Rokkitt';
+  ctx.font = '12px Arial';
   ctx.fillStyle = '#888';
   ctx.fillText('1 year ago', 10, footerY + 110);
 
