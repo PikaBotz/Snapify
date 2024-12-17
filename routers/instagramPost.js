@@ -118,7 +118,7 @@ router.post('/', async (req, res) => {
     } else {
         try {
             const response = await axios.get(image, { responseType: 'arraybuffer' });
-            imageBuffer = Buffer.from(response.data);
+            imageBuffer = response.data;
         } catch (err) {
             console.log(err);
             return res.status(400).json({
