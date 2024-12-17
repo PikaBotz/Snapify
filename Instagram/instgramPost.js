@@ -174,9 +174,27 @@ export default class InstagramPost {
     ctx.fillRect(0, footerY, width, height - footerY);
 
     // --- LIKE ICON (Heart PNG) ---
-const heartImage = await loadImage(likePng); // Replace with the path to your heart PNG image
-ctx.drawImage(heartImage, 10, footerY + 10, 30, 30); // Draw the heart image at the specified position with the size (30x30px)
+// Canvas dimensions and other setup code remains unchanged
 
+// Inside the buildCanvas method...
+
+// --- LIKE ICON (Heart PNG) ---
+const heartImage = await loadImage(likePng); // Replace with the path to your heart PNG image
+const heartX = 10; // X position of the heart image
+const heartY = footerY + 10; // Y position of the heart image
+const heartSize = 30; // Size of the heart image
+
+// Draw the heart image
+ctx.drawImage(heartImage, heartX, heartY, heartSize, heartSize);
+
+// --- LIKE COUNT (Next to the heart) ---
+ctx.font = '14px Rokkitt'; // Font style for like count
+ctx.fillStyle = '#fff'; // Text color (white)
+const likeCount = this.likes; // Replace with the actual like count
+ctx.fillText(likeCount, heartX + heartSize + 5, heartY + 20); // Position the like count to the right of the heart
+
+// Caption and Time...
+    
     // --- COMMENT ICON (Speech Bubble) ---
     ctx.fillStyle = '#00ff00'; // Green color for the comment bubble
     ctx.beginPath();
