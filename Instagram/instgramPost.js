@@ -124,7 +124,7 @@ const height = 540; // Calculated height to fit header, image, and footer.
   ctx.fill();
 
   // Load Profile Picture
-  const profileImage = await loadImage('https://storage.googleapis.com/a1aa/image/eYg6TAtNSpRGIadSeXhwpAPO87YJlq1c1rhX8pVQkNyR6v1TA.jpg');
+  const profileImage = await loadImage('https://avatars.githubusercontent.com/u/121213527?v=4');
   ctx.save();
   ctx.beginPath();
   ctx.arc(profilePicX + profilePicSize / 2, profilePicY + profilePicSize / 2, (profilePicSize - 8) / 2, 0, Math.PI * 2);
@@ -156,7 +156,7 @@ const height = 540; // Calculated height to fit header, image, and footer.
   ctx.fillText('•••', width - 25, profilePicY + 25);
 
   // Image
-  const postImage = await loadImage('https://storage.googleapis.com/a1aa/image/7kiuPE3ehUW1N6VaXWeR2NCETSFKPVeMRlP7ctnN4Ecg0fWPB.jpg');
+  const postImage = await loadImage('https://avatars.githubusercontent.com/u/121213527?v=4');
   ctx.drawImage(postImage, 0, headerHeight, width, 400);
 
   // Footer
