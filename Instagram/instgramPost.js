@@ -83,7 +83,7 @@ export default class InstagramPost {
     return this;
   }
 
-  async toAttachment() {
+  async buildCanvas() {
     const postImage = await loadImage(this.imageUrl);
     const frameWidth = Math.min(1080, postImage.width);
     const frameHeight = Math.min(1350, postImage.height);
