@@ -91,7 +91,7 @@ const __dirname = path.dirname(__filename);
     
 
 // Register custom font
-const fontPath = path.join(__dirname, '../Fonts/Rokkitt-Regular.ttf');
+const fontPath = '../Fonts/Rokkitt-Regular.ttf';
 registerFont(fontPath, { family: 'Rokkitt' });
 
 // Canvas dimensions
