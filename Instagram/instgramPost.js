@@ -188,10 +188,10 @@ const heartSize = 30; // Size of the heart image
 ctx.drawImage(heartImage, heartX, heartY, heartSize, heartSize);
 
 // --- LIKE COUNT (Next to the heart) ---
-ctx.font = '14px Rokkitt'; // Font style for like count
+ctx.font = '20px Rokkitt'; // Font style for like count
 ctx.fillStyle = '#fff'; // Text color (white)
 const likeCount = this.likes; // Replace with the actual like count
-ctx.fillText(likeCount, heartX + heartSize + 5, heartY + 20); // Position the like count to the right of the heart
+ctx.fillText(likeCount, heartX + heartSize - 5, heartY + 20); // Position the like count to the right of the heart
 
 // Caption and Time...
     
