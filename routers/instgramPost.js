@@ -1,5 +1,6 @@
 import express from 'express';
-import InstagramPost from '../InstagramPost';
+import axios from 'axios';
+import InstagramPost from '../Instagram/instgramPost.js';
 import { Buffer } from 'buffer';
 const router = express.Router();
 
@@ -116,9 +117,10 @@ router.post('/', async (req, res) => {
         }
     } else {
         try {
-            const response = await fetch(image);
-            imageBuffer = await response.buffer();
+            const response = await axios.get(image, { responseType: 'arraybuffer' });
+            imageBuffer = response.data;
         } catch (err) {
+            console.log(err);
             return res.status(400).json({
                 status: false,
                 code: 400,
@@ -128,7 +130,7 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        const buffer = await new InstagramPost()
+        const post = await new InstagramPost()
             .isFollowing(following)
             .isVerified(verified)
             .setPfp(pfp)
@@ -141,10 +143,10 @@ router.post('/', async (req, res) => {
             .setCaption(caption)
             .setAgo(ago)
             .isLiked(liked)
-            .setImage(imageBuffer)
-            .buildCanvas();
+            .setImage(imageBuffer);
+        const buffer = await post.buildCanvas();
         res.set("Content-Type", "image/png");
-        return res.send(buffer.toBuffer());
+        return res.send(buffer);
     } catch (error) {
         console.log(error);
         return res.status(500).json({
