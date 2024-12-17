@@ -2,33 +2,23 @@ import express from 'express';
 import path,{dirname} from 'path';
 import {
     fileURLToPath
-  } from 'url'
+  } from 'url';
   import {
     createRequire
   } from 'module';
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(fileURLToPath(import.meta.url))
 
-
-  const app= express()
-  const PORT = process.env.PORT||3000
-
-
-
+  const app = express();
+  const PORT = process.env.PORT||3000;
 
   //Routes
-  import test from './routers/test.js'
+  import test from './routers/test.js';
+  import InstagramPost from './routers/instagramPost.js';
 
-
-
-
-
-  app.use('/',test)
-
+  app.use('/', test);
+  app.use('/igpost', InstagramPost);
 
   app.listen(PORT,()=>{
-
-    console.log(`App is running on port ${PORT}`)
+      console.log(`App is running on port ${PORT}`)
   })
-
-
