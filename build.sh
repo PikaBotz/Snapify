@@ -1,5 +1,4 @@
 #!/bin/bash
-
 apt-get update
 
 apt-get install -y build-essential \
@@ -8,6 +7,8 @@ apt-get install -y build-essential \
   libjpeg-dev \
   libgif-dev \
   librsvg2-dev \
-  libpixman-1-dev 
+  libpixman-1-dev
+
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig
 
 npm install
