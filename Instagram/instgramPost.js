@@ -89,8 +89,7 @@ export default class InstagramPost {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const fontPath = '../Fonts/Rokkitt-Regular.ttf';
-  //path.join(__dirname, '../Fonts', 'Rokkitt-Regular.ttf');
+const fontPath = path.join(__dirname, 'Assets', 'Rokkitt-Regular.ttf');
     console.log(fontPath);
 registerFont(fontPath, { family: 'Rokkitt' });
 
