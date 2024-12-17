@@ -85,7 +85,9 @@ export default class InstagramPost {
   }
 
   async buildCanvas() {
-      
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+    
 
 // Register custom font
 const fontPath = path.join(__dirname, '../Fonts/Rokkitt-Regular.ttf');
