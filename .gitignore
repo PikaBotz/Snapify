@@ -1,0 +1,26 @@
+ 
+ 
+# Dependency directories
+.git/
+node_modules/
+
+
+package-lock.json
+yarn.lock
+
+
+# catche
+.catche
+
+/cache
+
+#vscode
+.vscode
+/vscode
+#pm2
+.pm2
+/pm2
+
+
+
+devcontainer/*
