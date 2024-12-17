@@ -166,6 +166,7 @@ export default class InstagramPost {
     if (!buffer || buffer.length === 0) {
       throw new Error("Generated buffer is empty");
     }
+    return buffer;
   }
   
 }
