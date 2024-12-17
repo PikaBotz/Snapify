@@ -5,8 +5,9 @@
   "description": "***This repo is being developed for free and open-source template generators, specifically developing for serverless platforms like vercel.***",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node api/index.js"
+    "start": "node server.js",
+    "build": "npm install --build-from-source",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
