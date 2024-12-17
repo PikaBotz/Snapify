@@ -1,5 +1,5 @@
 import express from 'express';
-import InstagramPost from '../InstagramPost';
+import InstagramPost from '../Instagram/instgramPost.js';
 import { Buffer } from 'buffer';
 const router = express.Router();
 
