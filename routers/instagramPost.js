@@ -119,6 +119,7 @@ router.post('/', async (req, res) => {
             const response = await fetch(image);
             imageBuffer = await response.buffer();
         } catch (err) {
+            console.log(err);
             return res.status(400).json({
                 status: false,
                 code: 400,
