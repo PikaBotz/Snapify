@@ -197,7 +197,7 @@ ctx.fillText(likeCount, heartX + heartSize - 3, heartY + 20); // Position the li
 // Caption and Time...
     
 const commentImage = await loadImage(commentPng); // Replace with the path to your heart PNG image
-const commentX = 40; // X position of the heart image
+const commentX = 60; // X position of the heart image
 const commentY = footerY + 12.5; // Y position of the heart image
 const commentSize = 20; // Size of the heart image
 
