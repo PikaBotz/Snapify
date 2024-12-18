@@ -230,7 +230,7 @@ ctx.fillText(shareCount, shareX + shareSize + 3, shareY + 16);
 
 
     const saveImage = await loadImage(savePng(this.saved)); // Replace with the path to your heart PNG image
-const saveX = 400; // X position of the heart image
+const saveX = 350; // X position of the heart image
 const saveY = footerY + 14; // Y position of the heart image
 const saveSize = 20; // Size of the heart image
 
