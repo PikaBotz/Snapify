@@ -281,15 +281,12 @@ ctx.drawImage(saveImage, saveX, saveY, saveSize, saveSize);
 
     ctx.font = '14px "Rokkitt", "Noto Color Emoji"';
     ctx.fillStyle = '#fff';
-    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 20, footerY + 50);
-
-    ctx.fillStyle = '#1da1f2';
-    ctx.fillText('#theultimatenerd @friend', 10, footerY + 90);
+    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 50, footerY + 50);
 
     // Time
     ctx.font = '12px Rokkitt';
     ctx.fillStyle = '#888';
-    ctx.fillText('1 year ago', 10, footerY + 110);
+    ctx.fillText('1 year ago', 10, footerY + 70);
 
     // Save to file or return buffer
     const buffer = canvas.toBuffer();
