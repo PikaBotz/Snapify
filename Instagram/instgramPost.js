@@ -167,19 +167,37 @@ const verifiedSize = 18; // Size of the heart image
 // Draw the heart image
 ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
 
-    
+    if (this.watermark) {
     ctx.font = '12px Rokkitt';
     ctx.fillStyle = '#888';
-    ctx.fillText('Queen Anya v2 • @PikaBotz', profilePicX + profilePicSize + 10, profilePicY + 36);
-
+    ctx.fillText(this.watermark, profilePicX + profilePicSize + 10, profilePicY + 36);
+    }
+    
     // Follow Button
-    ctx.fillStyle = '#fff';
-    ctx.font = '12px Rokkitt';
-    ctx.strokeStyle = '#fff';
-    ctx.lineWidth = 1;
-    ctx.strokeRect(width - 70, profilePicY + 10, 60, 20);
-    ctx.fillText('Follow', width - 62, profilePicY + 25);
+const buttonWidth = 60;
+const buttonHeight = 20;
+const buttonX = width - 80; // Move square 10px to the left
+const buttonY = profilePicY + 10;
 
+// Draw the button rectangle
+ctx.fillStyle = '#fff';
+ctx.strokeStyle = '#fff';
+ctx.lineWidth = 1;
+ctx.strokeRect(buttonX, buttonY, buttonWidth, buttonHeight);
+
+// Set the text
+const buttonText = this.following ? 'Following' : 'Follow';
+ctx.font = '12px Rokkitt';
+ctx.fillStyle = '#fff';
+
+// Measure text width for centering
+const textWidth = ctx.measureText(buttonText).width;
+const textX = buttonX + (buttonWidth - textWidth) / 2; // Center text horizontally
+const textY = buttonY + (buttonHeight + 12) / 2; // Center text vertically (approx.)
+
+// Draw the text
+ctx.fillText(buttonText, textX, textY);
+    
     // Save the current state of the context
 ctx.save();
 
@@ -277,16 +295,16 @@ ctx.drawImage(saveImage, saveX, saveY, saveSize, saveSize);
     // Caption
     ctx.font = 'bold 15px Rokkitt';
     ctx.fillStyle = '#fff';
-    ctx.fillText('3.69_pika', 10, footerY + 55);
+    ctx.fillText('3.69_pika', 10, footerY + 60);
 
     ctx.font = '14px "Rokkitt", "Noto Color Emoji"';
     ctx.fillStyle = '#fff';
-    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 70, footerY + 55);
+    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 70, footerY + 60);
 
     // Time
     ctx.font = '12px Rokkitt';
     ctx.fillStyle = '#888';
-    ctx.fillText('1 year ago', 10, footerY + 70);
+    ctx.fillText('1 year ago', 10, footerY + 80);
 
     // Save to file or return buffer
     const buffer = canvas.toBuffer();
