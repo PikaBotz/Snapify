@@ -151,7 +151,7 @@ export default class InstagramPost {
     ctx.arc(profilePicX + profilePicSize / 2, profilePicY + profilePicSize / 2, (profilePicSize - 8) / 2, 0, Math.PI * 2);
     ctx.closePath();
     ctx.clip();
-    ctx.drawImage(profileImage, profilePicX + 4, profilePicY + 4, profilePicSize - 8, profilePicSize - 8);
+    ctx.drawImage(profileImage, profilePicX + 4, profilePicY + 2, profilePicSize - 8, profilePicSize - 8);
     ctx.restore();
 
     // Username and Info
