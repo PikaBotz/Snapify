@@ -6,9 +6,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Register custom font
-const fontPath = path.join(__dirname, 'Assets', 'Rokkitt-Regular.ttf');
-console.log(fontPath);
+const fontPath = path.join(__dirname, '../Fonts', 'Rokkitt-Regular.ttf');
 registerFont(fontPath, { family: 'Rokkitt' });
+
+const emojiPath = path.join(__dirname, '../Fonts', 'NotoColorEmoji-Regular.ttf');
+registerFont(emojiPath, { family: 'Noto Color Emoji' });
 
 const likePng = (value) => path.join(__dirname, 'Assets', value ? 'liked.png' : 'like.png');
 const savePng = (value) => path.join(__dirname, 'Assets', value ? 'saved.png' : 'save.png');
@@ -30,6 +32,7 @@ export default class InstagramPost {
     this.caption = '';
     this.ago = '1 year ago';
     this.liked = false;
+    this.dark = true;
     this.imageUrl = 'https://avatars.githubusercontent.com/u/121213527?v=4';
   }
 
@@ -90,6 +93,11 @@ export default class InstagramPost {
 
   isLiked(value) {
     if (typeof value === 'boolean') this.liked = value;
+    return this;
+  }
+
+  isDark(value) {
+    if (typeof value === 'boolean') this.dark = value;
     return this;
   }
 
@@ -242,7 +250,7 @@ ctx.drawImage(saveImage, saveX, saveY, saveSize, saveSize);
     ctx.fillStyle = '#fff';
     ctx.fillText('3.69_pika', 10, footerY + 50);
 
-    ctx.font = '14px Rokkitt';
+    ctx.font = '14px "Rokkitt", "Noto Color Emoji"';
     ctx.fillStyle = '#fff';
     ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 10, footerY + 70);
 
