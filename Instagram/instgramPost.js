@@ -176,8 +176,8 @@ ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
     // Follow Button
 const buttonWidth = 60;
 const buttonHeight = 20;
-const buttonX = width - 80; // Move square 10px to the left
-const buttonY = profilePicY + 5;
+const buttonX = width - 100; // Move square 10px to the left
+const buttonY = profilePicY + 9;
 
 // Draw the button rectangle
 ctx.fillStyle = '#fff';
