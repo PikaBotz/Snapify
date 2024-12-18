@@ -12,6 +12,7 @@ registerFont(fontPath, { family: 'Rokkitt' });
 
 const likePng = (value) => path.join(__dirname, 'Assets', value ? 'liked.png' : 'like.png');
 const commentPng = path.join(__dirname, 'Assets', 'comment.png');
+const sharePng = path.join(__dirname, 'Assets', 'share.png');
 
 export default class InstagramPost {
 
@@ -209,6 +210,21 @@ ctx.font = '20px Rokkitt'; // Font style for like count
 ctx.fillStyle = '#fff'; // Text color (white)
 const commentCount = this.comments; // Replace with the actual like count
 ctx.fillText(commentCount, commentX + commentSize + 3, commentY + 16);
+
+
+    const shareImage = await loadImage(sharePng); // Replace with the path to your heart PNG image
+const shareX = 75; // X position of the heart image
+const shareY = footerY + 14; // Y position of the heart image
+const shareSize = 20; // Size of the heart image
+
+// Draw the heart image
+ctx.drawImage(shareImage, shareX, shareY, shareSize, shareSize);
+
+// --- LIKE COUNT (Next to the heart) ---
+ctx.font = '20px Rokkitt'; // Font style for like count
+ctx.fillStyle = '#fff'; // Text color (white)
+const sharesCount = this.shares; // Replace with the actual like count
+ctx.fillText(shareCount, shareX + shareize + 3, shareY + 16);
 
 
     // --- SHARE ICON (Arrow) ---
