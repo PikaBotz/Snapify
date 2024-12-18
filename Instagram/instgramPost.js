@@ -156,7 +156,7 @@ export default class InstagramPost {
 
     // Username and Info
     ctx.fillStyle = '#fff';
-    ctx.font = 'bold 12px Rokkitt';
+    ctx.font = 'bold 16px Rokkitt';
     ctx.fillText('3.69_pika', profilePicX + profilePicSize + 10, profilePicY + 16);
 
     const verifiedImage = await loadImage(verifiedPng); // Replace with the path to your heart PNG image
