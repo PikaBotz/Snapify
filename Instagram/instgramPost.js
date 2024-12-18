@@ -10,7 +10,8 @@ const fontPath = path.join(__dirname, 'Assets', 'Rokkitt-Regular.ttf');
 console.log(fontPath);
 registerFont(fontPath, { family: 'Rokkitt' });
 
-const likePng = path.join(__dirname, 'Assets', 'like.png');
+const likePng = (value) => path.join(__dirname, 'Assets', value ? 'liked.png' : 'like.png');
+const commentPng = path.join(__dirname, 'Assets', 'comment.png');
 
 export default class InstagramPost {
 
@@ -179,7 +180,7 @@ export default class InstagramPost {
 // Inside the buildCanvas method...
 
 // --- LIKE ICON (Heart PNG) ---
-const heartImage = await loadImage(likePng); // Replace with the path to your heart PNG image
+const heartImage = await loadImage(likePng(this.liked)); // Replace with the path to your heart PNG image
 const heartX = 10; // X position of the heart image
 const heartY = footerY + 10; // Y position of the heart image
 const heartSize = 30; // Size of the heart image
@@ -195,23 +196,20 @@ ctx.fillText(likeCount, heartX + heartSize - 3, heartY + 20); // Position the li
 
 // Caption and Time...
     
-    // --- COMMENT ICON (Speech Bubble) ---
-    ctx.fillStyle = '#00ff00'; // Green color for the comment bubble
-    ctx.beginPath();
-    ctx.moveTo(100, footerY + 15);
-    ctx.lineTo(160, footerY + 15); // Bottom line
-    ctx.lineTo(160, footerY - 15); // Right side
-    ctx.lineTo(100, footerY - 15); // Left side
-    ctx.closePath();
-    ctx.fill();
+const commentImage = await loadImage(commentPng); // Replace with the path to your heart PNG image
+const commentX = 20; // X position of the heart image
+const commentY = footerY + 20; // Y position of the heart image
+const commentSize = 30; // Size of the heart image
 
-    // Triangle for the speech bubble tail
-    ctx.beginPath();
-    ctx.moveTo(110, footerY - 15);
-    ctx.lineTo(120, footerY - 45); // Tail point
-    ctx.lineTo(130, footerY - 15);
-    ctx.closePath();
-    ctx.fill();
+// Draw the heart image
+ctx.drawImage(commentImage, commentX, commentY, commentSize, commentSize);
+
+// --- LIKE COUNT (Next to the heart) ---
+ctx.font = '20px Rokkitt'; // Font style for like count
+ctx.fillStyle = '#fff'; // Text color (white)
+const commentCount = this.comments; // Replace with the actual like count
+ctx.fillText(commentCount, commentX + commentSize - 3, commentY + 20);
+
 
     // --- SHARE ICON (Arrow) ---
     ctx.fillStyle = '#0000ff'; // Blue color for the share icon
