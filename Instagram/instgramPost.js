@@ -184,7 +184,7 @@ ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
 ctx.save();
 
 // Move the canvas origin to the position of the three dots
-ctx.translate(width - 25, profilePicY + 60);
+ctx.translate(width - 25, profilePicY + 10);
 
 // Rotate the canvas by 90 degrees (clockwise)
 ctx.rotate(Math.PI / 2);
