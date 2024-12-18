@@ -192,7 +192,7 @@ ctx.drawImage(heartImage, heartX, heartY, heartSize, heartSize);
 ctx.font = '20px Rokkitt'; // Font style for like count
 ctx.fillStyle = '#fff'; // Text color (white)
 const likeCount = this.likes; // Replace with the actual like count
-ctx.fillText(likeCount, heartX + heartSize - 3, heartY + 20); // Position the like count to the right of the heart
+ctx.fillText(likeCount, heartX + heartSize - 3, heartY + 10); // Position the like count to the right of the heart
 
 // Caption and Time...
     
