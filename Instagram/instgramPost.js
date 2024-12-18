@@ -180,11 +180,30 @@ ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
     ctx.strokeRect(width - 70, profilePicY + 10, 60, 20);
     ctx.fillText('Follow', width - 62, profilePicY + 25);
 
+    // Save the current state of the context
+ctx.save();
+
+// Move the canvas origin to the position of the three dots
+ctx.translate(width - 25, profilePicY + 25);
+
+// Rotate the canvas by 90 degrees (clockwise)
+ctx.rotate(Math.PI / 2);
+
+// Draw the three dots at the new origin (0, 0) because the rotation applies to the origin
+ctx.font = '18px Rokkitt';
+ctx.fillStyle = '#fff';
+ctx.fillText('•••', 0, 0);
+
+// Restore the context to its original state
+ctx.restore();
+
+    /*
     // Options Dots
     ctx.font = '18px Rokkitt';
     ctx.fillStyle = '#fff';
     ctx.fillText('•••', width - 25, profilePicY + 25);
-
+*/
+    
     // Post Image
     const postImage = await loadImage(this.imageUrl);
     ctx.drawImage(postImage, 0, headerHeight, width, 400);
