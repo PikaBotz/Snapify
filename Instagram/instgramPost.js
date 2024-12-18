@@ -170,7 +170,7 @@ ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
     
     ctx.font = '12px Rokkitt';
     ctx.fillStyle = '#888';
-    ctx.fillText('𝐐𝐮𝐞𝐞𝐧 𝐀𝐧𝐲𝐚 𝐕2 • @𝐏𝐢𝐤𝐚𝐁𝐨𝐭𝐳', profilePicX + profilePicSize + 10, profilePicY + 36);
+    ctx.fillText('Queen Anya v2 • @PikaBotz', profilePicX + profilePicSize + 10, profilePicY + 36);
 
     // Follow Button
     ctx.fillStyle = '#fff';
