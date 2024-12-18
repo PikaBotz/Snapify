@@ -198,7 +198,7 @@ ctx.fillText(likeCount, heartX + heartSize - 3, heartY + 20); // Position the li
     
 const commentImage = await loadImage(commentPng); // Replace with the path to your heart PNG image
 const commentX = 75; // X position of the heart image
-const commentY = footerY + 13; // Y position of the heart image
+const commentY = footerY + 14; // Y position of the heart image
 const commentSize = 20; // Size of the heart image
 
 // Draw the heart image
@@ -208,7 +208,7 @@ ctx.drawImage(commentImage, commentX, commentY, commentSize, commentSize);
 ctx.font = '20px Rokkitt'; // Font style for like count
 ctx.fillStyle = '#fff'; // Text color (white)
 const commentCount = this.comments; // Replace with the actual like count
-ctx.fillText(commentCount, commentX + commentSize - 2, commentY + 20);
+ctx.fillText(commentCount, commentX + commentSize - 4, commentY + 20);
 
 
     // --- SHARE ICON (Arrow) ---
