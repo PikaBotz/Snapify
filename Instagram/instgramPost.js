@@ -157,12 +157,12 @@ export default class InstagramPost {
     // Username and Info
     ctx.fillStyle = '#fff';
     ctx.font = 'bold 16px Rokkitt';
-    ctx.fillText('3.69_pika', profilePicX + profilePicSize + 10, profilePicY + 16);
+    ctx.fillText(this.username, profilePicX + profilePicSize + 10, profilePicY + 18);
 
     const verifiedImage = await loadImage(verifiedPng); // Replace with the path to your heart PNG image
 const verifiedX = profilePicX + profilePicSize + 80; // X position of the heart image
 const verifiedY = profilePicY + 5; // Y position of the heart image
-const verifiedSize = 18; // Size of the heart image
+const verifiedSize = 15; // Size of the heart image
 
 // Draw the heart image
 ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
@@ -295,16 +295,16 @@ ctx.drawImage(saveImage, saveX, saveY, saveSize, saveSize);
     // Caption
     ctx.font = 'bold 15px Rokkitt';
     ctx.fillStyle = '#fff';
-    ctx.fillText('3.69_pika', 10, footerY + 55);
+    ctx.fillText(this.username, 10, footerY + 55);
 
     ctx.font = '14px "Rokkitt", "Noto Color Emoji"';
     ctx.fillStyle = '#fff';
-    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 70, footerY + 55);
+    ctx.fillText(this.caption, 70, footerY + 55);
 
     // Time
     ctx.font = '12px Rokkitt';
     ctx.fillStyle = '#888';
-    ctx.fillText('1 year ago', 10, footerY + 75);
+    ctx.fillText(this.ago, 10, footerY + 75);
 
     // Save to file or return buffer
     const buffer = canvas.toBuffer();
