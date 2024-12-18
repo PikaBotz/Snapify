@@ -16,7 +16,8 @@ const likePng = (value) => path.join(__dirname, 'Assets', value ? 'liked.png' : 
 const savePng = (value) => path.join(__dirname, 'Assets', value ? 'saved.png' : 'save.png');
 const commentPng = path.join(__dirname, 'Assets', 'comment.png');
 const sharePng = path.join(__dirname, 'Assets', 'share.png');
-
+const verifiedPng = path.join(__dirname, 'Assets', 'verified.png');
+  
 export default class InstagramPost {
 
   constructor() {
@@ -158,6 +159,15 @@ export default class InstagramPost {
     ctx.font = 'bold 12px Rokkitt';
     ctx.fillText('3.69_pika', profilePicX + profilePicSize + 10, profilePicY + 16);
 
+    const verifiedImage = await loadImage(verifiedPng); // Replace with the path to your heart PNG image
+const verifiedX = profilePicX + profilePicSize + 20; // X position of the heart image
+const verifiedY = profilePicY + 32; // Y position of the heart image
+const verifiedSize = 20; // Size of the heart image
+
+// Draw the heart image
+ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
+
+    
     ctx.font = '12px Rokkitt';
     ctx.fillStyle = '#888';
     ctx.fillText('𝐐𝐮𝐞𝐞𝐧 𝐀𝐧𝐲𝐚 𝐕2 • @𝐏𝐢𝐤𝐚𝐁𝐨𝐭𝐳', profilePicX + profilePicSize + 10, profilePicY + 36);
