@@ -172,7 +172,49 @@ ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
     ctx.fillStyle = '#888';
     ctx.fillText(this.watermark, profilePicX + profilePicSize + 10, profilePicY + 32);
     }
+
+    // Follow Button
+const buttonWidth = 60;
+const buttonHeight = 20;
+const buttonX = width - 100; // Move square 10px to the left
+const buttonY = profilePicY + 9;
+const cornerRadius = 5; // Radius for rounded corners
+
+// Draw the rounded rectangle
+ctx.beginPath();
+ctx.moveTo(buttonX + cornerRadius, buttonY); // Top-left corner
+ctx.lineTo(buttonX + buttonWidth - cornerRadius, buttonY); // Top edge
+ctx.quadraticCurveTo(buttonX + buttonWidth, buttonY, buttonX + buttonWidth, buttonY + cornerRadius); // Top-right corner
+ctx.lineTo(buttonX + buttonWidth, buttonY + buttonHeight - cornerRadius); // Right edge
+ctx.quadraticCurveTo(buttonX + buttonWidth, buttonY + buttonHeight, buttonX + buttonWidth - cornerRadius, buttonY + buttonHeight); // Bottom-right corner
+ctx.lineTo(buttonX + cornerRadius, buttonY + buttonHeight); // Bottom edge
+ctx.quadraticCurveTo(buttonX, buttonY + buttonHeight, buttonX, buttonY + buttonHeight - cornerRadius); // Bottom-left corner
+ctx.lineTo(buttonX, buttonY + cornerRadius); // Left edge
+ctx.quadraticCurveTo(buttonX, buttonY, buttonX + cornerRadius, buttonY); // Top-left corner
+ctx.closePath();
+
+// Style the button
+ctx.strokeStyle = '#fff';
+ctx.lineWidth = 1;
+ctx.stroke();
+
+// Set the text
+const buttonText = this.following ? 'Following' : 'Follow';
+ctx.font = '12px Rokkitt';
+ctx.fillStyle = '#fff';
+
+// Measure text width for centering
+const textWidth = ctx.measureText(buttonText).width;
+const textX = buttonX + (buttonWidth - textWidth) / 2; // Center text horizontally
+const textY = buttonY + (buttonHeight + 12) / 2 - 2; // Center text vertically (fine-tuned)
+
+// Draw the text
+ctx.fillText(buttonText, textX, textY);
+
+// Save the current state of the context
+ctx.save();
     
+    /*
     // Follow Button
 const buttonWidth = 60;
 const buttonHeight = 20;
@@ -200,7 +242,7 @@ ctx.fillText(buttonText, textX, textY);
     
     // Save the current state of the context
 ctx.save();
-
+*/
 // Move the canvas origin to the position of the three dots
 ctx.translate(width - 25, profilePicY + 13);
 
