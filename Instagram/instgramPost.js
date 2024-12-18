@@ -208,7 +208,7 @@ ctx.drawImage(commentImage, commentX, commentY, commentSize, commentSize);
 ctx.font = '20px Rokkitt'; // Font style for like count
 ctx.fillStyle = '#fff'; // Text color (white)
 const commentCount = this.comments; // Replace with the actual like count
-ctx.fillText(commentCount, commentX + commentSize + 3, commentY + 15);
+ctx.fillText(commentCount, commentX + commentSize + 3, commentY + 14);
 
 
     // --- SHARE ICON (Arrow) ---
