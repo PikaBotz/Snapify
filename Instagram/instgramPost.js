@@ -224,7 +224,7 @@ ctx.drawImage(shareImage, shareX, shareY, shareSize, shareSize);
 ctx.font = '20px Rokkitt'; // Font style for like count
 ctx.fillStyle = '#fff'; // Text color (white)
 const shareCount = this.shares; // Replace with the actual like count
-ctx.fillText(shareCount, shareX + shareize + 3, shareY + 16);
+ctx.fillText(shareCount, shareX + shareSize + 3, shareY + 16);
 
 
     // --- SHARE ICON (Arrow) ---
