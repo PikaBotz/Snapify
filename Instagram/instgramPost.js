@@ -177,7 +177,7 @@ ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
 const buttonWidth = 60;
 const buttonHeight = 20;
 const buttonX = width - 80; // Move square 10px to the left
-const buttonY = profilePicY + 0;
+const buttonY = profilePicY + 5;
 
 // Draw the button rectangle
 ctx.fillStyle = '#fff';
@@ -193,7 +193,7 @@ ctx.fillStyle = '#fff';
 // Measure text width for centering
 const textWidth = ctx.measureText(buttonText).width;
 const textX = buttonX + (buttonWidth - textWidth) / 2; // Center text horizontally
-const textY = buttonY + ((buttonHeight + 12) / 2) - 5; // Center text vertically (approx.)
+const textY = buttonY + ((buttonHeight + 12) / 2) - 2; // Center text vertically (approx.)
 
 // Draw the text
 ctx.fillText(buttonText, textX, textY);
