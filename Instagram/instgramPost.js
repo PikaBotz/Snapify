@@ -184,7 +184,7 @@ ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
 ctx.save();
 
 // Move the canvas origin to the position of the three dots
-ctx.translate(width - 25, profilePicY + 12);
+ctx.translate(width - 25, profilePicY + 13);
 
 // Rotate the canvas by 90 degrees (clockwise)
 ctx.rotate(Math.PI / 2);
@@ -275,13 +275,13 @@ const saveSize = 20; // Size of the heart image
 ctx.drawImage(saveImage, saveX, saveY, saveSize, saveSize);
 
     // Caption
-    ctx.font = 'bold 14px Rokkitt';
+    ctx.font = 'bold 15px Rokkitt';
     ctx.fillStyle = '#fff';
     ctx.fillText('3.69_pika', 10, footerY + 50);
 
     ctx.font = '14px "Rokkitt", "Noto Color Emoji"';
     ctx.fillStyle = '#fff';
-    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 10, footerY + 70);
+    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 20, footerY + 50);
 
     ctx.fillStyle = '#1da1f2';
     ctx.fillText('#theultimatenerd @friend', 10, footerY + 90);
