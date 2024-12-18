@@ -160,7 +160,7 @@ export default class InstagramPost {
     ctx.fillText(this.username, profilePicX + profilePicSize + 10, profilePicY + 19);
 
     const verifiedImage = await loadImage(verifiedPng); // Replace with the path to your heart PNG image
-const verifiedX = profilePicX + profilePicSize + 65; // X position of the heart image
+const verifiedX = profilePicX + profilePicSize + 70; // X position of the heart image
 const verifiedY = profilePicY + 15; // Y position of the heart image
 const verifiedSize = 15; // Size of the heart image
 
