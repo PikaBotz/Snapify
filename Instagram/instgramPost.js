@@ -154,11 +154,17 @@ export default class InstagramPost {
     ctx.drawImage(profileImage, profilePicX + 4, profilePicY + 2, profilePicSize - 8, profilePicSize - 8);
     ctx.restore();
 
-    // Username and Info
-    ctx.fillStyle = '#fff';
-    ctx.font = 'bold 16px Rokkitt';
-    ctx.fillText(this.username, profilePicX + profilePicSize + 10, profilePicY + 19);
+    ctx.font = 'bold 18px Rokkitt'; // Increase font size and make it bold
+ctx.fillStyle = '#fff'; // White text color
 
+// Optional: Add a stroke for extra boldness
+ctx.strokeStyle = '#000'; // Black outline for contrast
+ctx.lineWidth = 2; // Thickness of the outline
+ctx.strokeText(this.username, profilePicX + profilePicSize + 10, profilePicY + 19); // Draw the outline
+
+// Fill the text
+ctx.fillText(this.username, profilePicX + profilePicSize + 10, profilePicY + 19);
+    
     if (this.verified) {
     const verifiedImage = await loadImage(verifiedPng); // Replace with the path to your heart PNG image
 const verifiedX = profilePicX + profilePicSize + 72; // X position of the heart image
