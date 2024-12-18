@@ -223,7 +223,7 @@ ctx.drawImage(shareImage, shareX, shareY, shareSize, shareSize);
 // --- LIKE COUNT (Next to the heart) ---
 ctx.font = '20px Rokkitt'; // Font style for like count
 ctx.fillStyle = '#fff'; // Text color (white)
-const sharesCount = this.shares; // Replace with the actual like count
+const shareCount = this.shares; // Replace with the actual like count
 ctx.fillText(shareCount, shareX + shareize + 3, shareY + 16);
 
 
