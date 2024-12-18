@@ -11,6 +11,7 @@ console.log(fontPath);
 registerFont(fontPath, { family: 'Rokkitt' });
 
 const likePng = (value) => path.join(__dirname, 'Assets', value ? 'liked.png' : 'like.png');
+const savePng = (value) => path.join(__dirname, 'Assets', value ? 'saved.png' : 'save.png');
 const commentPng = path.join(__dirname, 'Assets', 'comment.png');
 const sharePng = path.join(__dirname, 'Assets', 'share.png');
 
@@ -227,18 +228,14 @@ const shareCount = this.shares; // Replace with the actual like count
 ctx.fillText(shareCount, shareX + shareSize + 3, shareY + 16);
 
 
-    // --- SHARE ICON (Arrow) ---
-    ctx.fillStyle = '#0000ff'; // Blue color for the share icon
-    ctx.beginPath();
-    ctx.moveTo(200, footerY + 15); // Starting point for the arrow shaft
-    ctx.lineTo(250, footerY + 15); // End of the shaft
-    ctx.lineTo(250, footerY - 5); // Right side of the shaft
-    ctx.lineTo(280, footerY - 5); // Arrow right part
-    ctx.lineTo(250, footerY - 25); // Back to shaft
-    ctx.lineTo(250, footerY - 45); // Ending part of arrow
-    ctx.lineTo(240, footerY - 55); // Bottom left part of the arrow
-    ctx.closePath();
-    ctx.fill();
+
+    const saveImage = await loadImage(savePng(this.saved)); // Replace with the path to your heart PNG image
+const saveX = 600; // X position of the heart image
+const saveY = footerY + 14; // Y position of the heart image
+const saveSize = 18; // Size of the heart image
+
+// Draw the heart image
+ctx.drawImage(saveImage, saveX, saveY, saveSize, saveSize);
 
     // Caption
     ctx.font = 'bold 14px Rokkitt';
