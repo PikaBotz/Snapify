@@ -213,7 +213,7 @@ ctx.fillText(commentCount, commentX + commentSize + 3, commentY + 16);
 
 
     const shareImage = await loadImage(sharePng); // Replace with the path to your heart PNG image
-const shareX = 75; // X position of the heart image
+const shareX = 140; // X position of the heart image
 const shareY = footerY + 14; // Y position of the heart image
 const shareSize = 20; // Size of the heart image
 
