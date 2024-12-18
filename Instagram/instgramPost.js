@@ -177,7 +177,7 @@ ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
 const buttonWidth = 60;
 const buttonHeight = 20;
 const buttonX = width - 80; // Move square 10px to the left
-const buttonY = profilePicY + 10;
+const buttonY = profilePicY + 0;
 
 // Draw the button rectangle
 ctx.fillStyle = '#fff';
@@ -193,7 +193,7 @@ ctx.fillStyle = '#fff';
 // Measure text width for centering
 const textWidth = ctx.measureText(buttonText).width;
 const textX = buttonX + (buttonWidth - textWidth) / 2; // Center text horizontally
-const textY = buttonY + (buttonHeight + 12) / 2; // Center text vertically (approx.)
+const textY = buttonY + ((buttonHeight + 12) / 2) - 5; // Center text vertically (approx.)
 
 // Draw the text
 ctx.fillText(buttonText, textX, textY);
@@ -295,16 +295,16 @@ ctx.drawImage(saveImage, saveX, saveY, saveSize, saveSize);
     // Caption
     ctx.font = 'bold 15px Rokkitt';
     ctx.fillStyle = '#fff';
-    ctx.fillText('3.69_pika', 10, footerY + 60);
+    ctx.fillText('3.69_pika', 10, footerY + 55);
 
     ctx.font = '14px "Rokkitt", "Noto Color Emoji"';
     ctx.fillStyle = '#fff';
-    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 70, footerY + 60);
+    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 70, footerY + 55);
 
     // Time
     ctx.font = '12px Rokkitt';
     ctx.fillStyle = '#888';
-    ctx.fillText('1 year ago', 10, footerY + 80);
+    ctx.fillText('1 year ago', 10, footerY + 75);
 
     // Save to file or return buffer
     const buffer = canvas.toBuffer();
