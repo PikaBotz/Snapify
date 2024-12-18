@@ -277,11 +277,11 @@ ctx.drawImage(saveImage, saveX, saveY, saveSize, saveSize);
     // Caption
     ctx.font = 'bold 15px Rokkitt';
     ctx.fillStyle = '#fff';
-    ctx.fillText('3.69_pika', 10, footerY + 50);
+    ctx.fillText('3.69_pika', 10, footerY + 55);
 
     ctx.font = '14px "Rokkitt", "Noto Color Emoji"';
     ctx.fillStyle = '#fff';
-    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 50, footerY + 50);
+    ctx.fillText('Thankful for this 🥰 Happy Thanksgiving nerds!', 70, footerY + 55);
 
     // Time
     ctx.font = '12px Rokkitt';
