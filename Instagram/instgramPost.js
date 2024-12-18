@@ -159,14 +159,15 @@ export default class InstagramPost {
     ctx.font = 'bold 16px Rokkitt';
     ctx.fillText(this.username, profilePicX + profilePicSize + 10, profilePicY + 19);
 
+    if (this.verified) {
     const verifiedImage = await loadImage(verifiedPng); // Replace with the path to your heart PNG image
 const verifiedX = profilePicX + profilePicSize + 72; // X position of the heart image
 const verifiedY = profilePicY + 6; // Y position of the heart image
 const verifiedSize = 15; // Size of the heart image
-
+    
 // Draw the heart image
 ctx.drawImage(verifiedImage, verifiedX, verifiedY, verifiedSize, verifiedSize);
-
+    }
     if (this.watermark) {
     ctx.font = '12px Rokkitt';
     ctx.fillStyle = '#888';
