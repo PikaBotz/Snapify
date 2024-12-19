@@ -1,14 +1,12 @@
 #!/bin/bash
+# Update package list
 apt-get update
 
-apt-get install -y build-essential \
-  libcairo2-dev \
-  libpango1.0-dev \
-  libjpeg-dev \
-  libgif-dev \
-  librsvg2-dev \
-  libpixman-1-dev
+# Install only the required packages
+apt-get install -y libportaudio2
 
+# Export PKG_CONFIG_PATH if necessary
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig
 
+# Install Node.js dependencies
 npm install
